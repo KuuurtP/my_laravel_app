@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\NoteController; // Import the controller
+use App\Http\Controllers\NoteController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Make the homepage display the notes index.
+Route::get('/', [NoteController::class, 'index']);
 
-Route::resource('notes', NoteController::class); // Add the resource route
+// Resource route for all CRUD operations on notes.
+Route::resource('notes', NoteController::class);
